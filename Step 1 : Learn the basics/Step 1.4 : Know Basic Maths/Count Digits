@@ -1,1 +1,42 @@
-Count Digits
+//{ Driver Code Starts
+#include<bits/stdc++.h> 
+using namespace std;
+
+// } Driver Code Ends
+class Solution{
+public:
+    int evenlyDivides(int N){
+        
+        int ans = N;
+        int count = 0;
+        int rem;
+        
+        while(ans != 0)
+        {
+            rem = ans%10;
+            
+            if(rem != 0 && N%(ans%10) == 0)
+            {
+                count++;
+            }
+            ans = ans/10;
+        }
+        return count;
+    }
+};
+
+//{ Driver Code Starts.
+int main() 
+{ 
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int N;
+        cin>>N;
+        Solution ob;
+        cout << ob.evenlyDivides(N) << endl;
+    }
+    return 0; 
+}
+// } Driver Code Ends
