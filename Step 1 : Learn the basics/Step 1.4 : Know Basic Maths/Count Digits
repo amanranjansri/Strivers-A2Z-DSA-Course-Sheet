@@ -1,3 +1,14 @@
+#include<bits/stdc++.h>
+
+int count(int n){
+    
+    int digit = floor(log10(n) +1);
+    return digit;
+}
+
+//2nd method --> -->
+
+
 //{ Driver Code Starts
 #include<bits/stdc++.h> 
 using namespace std;
