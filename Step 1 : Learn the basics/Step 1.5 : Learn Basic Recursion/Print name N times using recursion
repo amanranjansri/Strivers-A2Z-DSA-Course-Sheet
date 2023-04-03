@@ -1,3 +1,23 @@
+// --> GFG <--
+
+void fun(int i , int n)
+    {
+        //base case
+        if(i>n)
+        {
+            return ;
+        }
+        
+        //recursive call
+        cout<<i<<" ";
+        fun(i+1,n);
+    }
+    
+    
+ // --> GFG <--
+    
+
+
 //{ Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
