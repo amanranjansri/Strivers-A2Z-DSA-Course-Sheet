@@ -1,0 +1,53 @@
+//{ Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+
+// } Driver Code Ends
+class Solution{
+    public:
+    
+    void printno(int n)
+    {
+        //base case
+        if(n == 1)
+        {
+            cout<<n<<" ";
+        }
+        if(n>1)
+        {
+            printno(n-1);
+            cout<<n<<" ";
+        }
+    }
+    
+    void printNos(int N)
+    {
+        printno(N);
+    }
+};
+
+//{ Driver Code Starts.
+/* Driver program to test printNos */
+int main()
+{
+    int T;
+    
+    //taking testcases
+    cin>>T;
+    
+    while(T--)
+    {
+        int N;
+        
+        //input N
+        cin>>N;
+        Solution ob;
+        //calling printNos() function
+        ob.printNos(N);
+        cout << "\n";
+    }
+    return 0;
+}
+
+// } Driver Code Ends
