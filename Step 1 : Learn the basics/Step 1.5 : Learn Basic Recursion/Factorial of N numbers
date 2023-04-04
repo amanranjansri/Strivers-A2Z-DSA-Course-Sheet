@@ -1,0 +1,28 @@
+// ----> 1st approach <-----
+// ----> GFG <-------
+
+
+class Solution
+{
+public:
+    vector<long long> factorialNumbers(long long N)
+    {
+        long long fact = 1;
+        long long x = 2;
+        vector<long long> ans;
+        
+        while(fact <= N)
+        {
+            ans.push_back(fact);
+            
+            fact = fact*x;
+            x++;
+        }
+        return ans;
+    }
+};
+
+
+//  ----> 2nd approach <-----
+
+// ----> nhi samgh aaya yrr so sad !!!
