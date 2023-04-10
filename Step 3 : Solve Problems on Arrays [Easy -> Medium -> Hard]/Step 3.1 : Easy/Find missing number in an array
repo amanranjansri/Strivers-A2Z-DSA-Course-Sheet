@@ -23,16 +23,14 @@ int main()
 // } Driver Code Ends
 
 
-int missingNumber(int A[], int N)
+int missingNumber(int arr[], int n)
 {
-    // Your code goes here
-    int x = 0;
-    int y = 0;
-    
-    for(int i = 0; i<N-1; i++)
-    {
-        x = x^A[i];
-        y = y^(i+1)^N;
+int xor1 = 0;
+    for(int i=1; i<=n; i++){
+        xor1^=i;
     }
-    return x^y;
+    for(int i=0; i<n-1; i++){
+        xor1^=arr[i];
+    }
+    return xor1;
 }
