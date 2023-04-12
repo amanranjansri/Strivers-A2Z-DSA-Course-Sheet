@@ -1,0 +1,61 @@
+// ----> 1st approach <----   
+
+class Solution
+{
+    public:
+    void sort012(int a[], int n)
+    {
+        // code here 
+        sort(a,a+n);
+    }
+    
+};
+
+
+
+// ---. 2nd approach <-----   ------>>> TLE Bubble sort <--------
+
+class Solution
+{
+    public:
+    void sort012(int a[], int n)
+    {
+        // code here 
+        sort(a,a+n);
+    }
+    
+};
+
+
+//  ------> 3rd question <------
+
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        
+        int n = nums.size();
+
+        int l = 0;
+        int m = 0;
+        int h = n-1;
+
+        while(m <= h)
+        {
+            if(nums[m] == 0)
+            {
+                swap(nums[l],nums[m]);
+                l++;
+                m++;
+            }
+            else if(nums[m] == 1)
+            {
+                m++;
+            }
+            else if(nums[m] == 2)
+            {
+                swap(nums[m], nums[h]);
+                h--;
+            }
+        }
+    }
+};
