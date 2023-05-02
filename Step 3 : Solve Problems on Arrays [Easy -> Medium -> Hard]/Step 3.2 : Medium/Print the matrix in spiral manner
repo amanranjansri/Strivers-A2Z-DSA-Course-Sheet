@@ -1,0 +1,76 @@
+//{ Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+class Solution{
+
+	public:
+	int findK(vector<vector<int>> &a, int n, int m, int k)
+    {   
+        int left=0;
+        int right=m-1;
+        int top=0;
+        int bottom=n-1;
+        int ans=-1;
+        int j=1;
+        
+        while(left<=right && top<=bottom) {
+            for(int i=left; i<=right; i++) {
+                if(j==k) ans=a[top][i];
+                j++;
+            }
+            top++;
+            for(int i=top; i<=bottom; i++) {
+                if(j==k) ans=a[i][right];
+                j++;
+            }
+            right--;
+            for(int i=right; i>=left; i--) {
+                if(j==k) ans=a[bottom][i];
+                j++;
+            }
+            bottom--;
+            for(int i=bottom; i>=top; i--) {
+                if(j==k) ans=a[i][left];
+                j++;
+            }
+            left++;
+        }
+        
+        return ans;
+    }
+
+};
+
+//{ Driver Code Starts.
+
+int main()
+{
+    int T;
+    cin>>T;
+  
+    while(T--)
+    {
+        int n,m;
+        int k=0;
+        //cin>>k;
+        cin>>n>>m>>k;
+        vector<vector<int>> a(n, vector<int>(m, 0));
+        
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                cin>>a[i][j];
+            }
+        }
+
+        Solution obj;
+
+        cout<< obj.findK(a, n, m, k) << "\n";
+        
+       
+    }
+}
+// } Driver Code Ends
