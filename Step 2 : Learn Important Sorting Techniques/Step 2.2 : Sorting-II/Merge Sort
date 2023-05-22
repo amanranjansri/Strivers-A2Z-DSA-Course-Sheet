@@ -1,1 +1,110 @@
-Merge Sort
+//{ Driver Code Starts
+#include <stdio.h>
+#include <bits/stdc++.h>
+using namespace std;
+
+
+
+/* Function to print an array */
+void printArray(int arr[], int size)
+{
+    int i;
+    for (i=0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+
+
+// } Driver Code Ends
+class Solution
+{
+    public:
+    void merge(int arr[], int l, int m, int r)
+    {
+         int n = m-l+1;
+         int p = r-m;
+         
+         int *first = new int[n];
+         int *second = new int[p];
+         
+         //copy value
+         int k = l;
+         for(int i = 0; i<n; i++)
+         {
+             first[i] = arr[k++];
+         }
+         
+         k = m+1;
+         for(int i = 0; i<p; i++)
+         {
+             second[i] = arr[k++];
+         }
+         
+         //merge two sorted array 
+         int i = 0;
+         int j = 0;
+         k = l;
+         while(i<n && j<p)
+         {
+             if(first[i] < second[j])
+             {
+                 arr[k++] = first[i++];
+             }
+             else
+             {
+                 arr[k++] = second[j++];
+             } 
+         }
+         
+         //left sorted part
+         while(i<n)
+         {
+             arr[k++] = first[i++];
+         }
+         
+         //right sorted part
+         while(j<p)
+         {
+             arr[k++] = second[j++];
+         }
+         
+    }
+    public:
+    void mergeSort(int arr[], int l, int r)
+    {
+        //base case
+        if(l>=r) return;
+        
+        int m = l+(r-l)/2;
+        //right sort karega
+        mergeSort(arr,l,m);
+        //left sort karega
+        mergeSort(arr,m+1,r);
+        //merge all the right and left part
+        merge(arr,l,m,r);
+    }
+};
+
+//{ Driver Code Starts.
+
+
+int main()
+{
+    int n,T,i;
+
+    scanf("%d",&T);
+
+    while(T--){
+    
+    scanf("%d",&n);
+    int arr[n+1];
+    for(i=0;i<n;i++)
+      scanf("%d",&arr[i]);
+
+    Solution ob;
+    ob.mergeSort(arr, 0, n-1);
+    printArray(arr, n);
+    }
+    return 0;
+}
+// } Driver Code Ends
