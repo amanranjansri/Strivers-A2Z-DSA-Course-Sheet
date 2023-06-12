@@ -1,0 +1,53 @@
+//{ Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+class Solution {
+  public:
+    string maxOdd(string s) {
+        
+        int n = s.length();
+        int e;
+        bool ans = false;
+        
+        for(int i = n-1; i >= 0; i--)
+        {
+            if(s[n-1] % 2 != 0)
+            {
+                return s;
+            }
+            if(s[i] % 2 != 0)
+            {
+                e = i;
+                ans = true;
+                break;
+            }
+        }
+        if(ans)
+            {
+                return s.substr(0,e+1);
+            }
+            else
+            {
+                return "";
+            }
+    }
+};
+
+
+//{ Driver Code Starts.
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        string s;
+        cin >> s;
+        Solution ob;
+
+        cout << ob.maxOdd(s) << endl;
+    }
+}
+
+// } Driver Code Ends
