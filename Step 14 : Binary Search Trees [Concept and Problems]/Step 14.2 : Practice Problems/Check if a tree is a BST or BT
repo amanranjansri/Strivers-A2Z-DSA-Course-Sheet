@@ -1,0 +1,34 @@
+/**********************************************************
+	Following is the Binary Tree Node class structure
+
+	template <typename T>
+	class BinaryTreeNode {
+    	public : 
+    	T data;
+    	BinaryTreeNode<T> *left;
+    	BinaryTreeNode<T> *right;
+
+    	BinaryTreeNode(T data) {
+        	this -> data = data;
+        	left = NULL;
+        	right = NULL;
+    	}
+	};
+
+***********************************************************/
+bool isvalid(BinaryTreeNode<int> *root, long mini, long maxi)
+{
+	if(root == NULL)
+	{
+		return true;
+	}
+	if(root -> data >= maxi || root -> data <= mini)
+	{
+		return false;
+	}
+	return isvalid(root -> left, mini, root -> data) && isvalid(root -> right, root -> data, maxi);
+}
+bool isBST(BinaryTreeNode<int> *root) {
+	// Write your code here
+	return isvalid(root,-1e12, 1e12);
+}
