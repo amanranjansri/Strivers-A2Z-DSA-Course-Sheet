@@ -1,0 +1,8 @@
+int countingGraphs(int N)
+{
+    // Write your code here.
+    int edges = N*(N-1)/2;  // no. of edges.
+
+    return pow(2,edges); // no. of graphs allowed.
+
+}
