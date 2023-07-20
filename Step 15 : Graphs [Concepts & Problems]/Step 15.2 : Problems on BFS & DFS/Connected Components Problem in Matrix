@@ -1,0 +1,41 @@
+#include <bits/stdc++.h> 
+void dfs(int root, vector<int>&visit, vector<vector<int>>& roads)
+{
+    visit[root] = 1;
+    
+    for(int it = 0; it < roads.size(); it++)
+    {
+        if(!visit[it] && roads[root][it])
+        {
+            dfs(it, visit, roads);
+        }
+    }
+}
+int findNumOfStates(vector<vector<int>>& roads, int n) {
+    // Write your code here.
+
+    // vector<int>adj[n];
+    // for(int i = 0; i<n; i++)
+    // {
+    //     adj[i].push_back(i);
+    // }
+
+    // for(int i = 0; i <n; i++)
+    // {
+    //     adj[roads[i][0]].push_back(roads[i][1]);
+    //     adj[roads[i][1]].push_back(roads[i][0]);
+    // }
+
+    int ans = 0;
+    vector<int> visit(n,0);
+
+    for(int i = 0; i < n; i++)
+    {
+        if(!visit[i])
+        {
+            ans++;
+            dfs(i, visit, roads);
+        }
+    }
+    return ans;
+}
